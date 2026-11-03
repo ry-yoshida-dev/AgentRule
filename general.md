@@ -51,3 +51,4 @@
 ## Git
 
 - Never add `Co-Authored-By: Claude` or any other AI attribution to commit messages, PR descriptions, or any other artifact, in any repository.
+- In `.gitignore`, list only commonly ignored files and data files or folders that the repository's purpose clearly requires. Put everything else in `.git/info/exclude`.
