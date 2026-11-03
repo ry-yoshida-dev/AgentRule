@@ -3,6 +3,7 @@
 ## Language
 
 - Communicate with the user in **Japanese**.
+- Write natural Japanese. When a technical term has an established form in its field, in English or katakana, use that form instead of translating it word for word.
 - Write code, comments, documentation (e.g., README.md), commit messages, and PR descriptions in **English**.
 
 ## Documentation
@@ -10,6 +11,7 @@
 - Add comments only at key points where the code alone does not convey the intent. Do not comment line by line.
 - Every directory containing source files must include a concise `README.md` with an `Overview`.
 - Sub-directories also need a `Components` table linking each file or sub-directory (except package initializers such as `__init__.py`) to its responsibility.
+- Add an `Examples` section to a `README.md` where it helps the reader.
 - When a code change affects public behavior, architecture, or usage, update the corresponding `README.md`.
 
 ## Design

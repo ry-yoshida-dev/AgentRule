@@ -22,10 +22,12 @@ paths:
 - The use of `Any` is prohibited.
 - Prefer domain-specific types, Protocols, generic type parameters, and abstract base classes.
 - Use `object` only when no meaningful abstraction can be expressed.
+- Use built-in generic types such as `list[str]` and `dict[str, int]`. Do not use `typing.List`, `typing.Dict`, or similar aliases.
+- Use the `X | Y` union syntax. Do not use `Union`.
 - Use `| None` only when absence is a valid domain concept.
 - Code must pass `mypy --strict`.
 - Code must pass basedpyright without suppressions where avoidable.
-- Use casts only when the type relationship cannot be expressed statically.
+- Use casts and `# type: ignore` only when the type relationship cannot be expressed statically.
 
 ## Modeling
 
