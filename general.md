@@ -15,24 +15,33 @@
 ## Design
 
 - Avoid abbreviations unless they are industry-standard.
-- Validate inputs as early as possible.
+- At the start of a function or method, before doing any other work, validate the inputs its types do not guarantee.
 - Raise or throw the most specific error type available. Do not use generic ones.
 - Breaking changes are acceptable when they significantly improve code quality, maintainability, type safety, or architecture.
 - Backward compatibility should not be preserved solely for its own sake.
-- Minimize the use of loops to keep processing latency low. Prefer batch operations, keyed lookups, and vectorized or built-in operations over element-by-element iteration, especially nested loops and per-item I/O.
+- Keep processing latency low. Prefer batch operations, keyed lookups, and vectorized or built-in operations over element-by-element iteration, especially nested loops and per-item I/O.
+
+## Structure
+
+- Everything in a directory must belong to that directory's responsibility. When a new or existing file or sub-directory does not fit, propose moving it to a different directory or creating a new one.
+- When a directory groups interchangeable items, such as concrete implementations of one interface, keep its contents the same kind of thing.
+- In upper-level directories, follow the directory structure and naming conventions established for the programming language.
+- Name files and directories so that reading a path from the top down lets the reader infer what each level contains.
+- Avoid vocabulary that comes from the conventions of modules used internally, and choose names with general meaning.
+- Proper names of external modules or programs may be used in files and directories close to the concrete layer.
 
 ## Tooling and Platform
 
 - In an existing project, follow its established stack and conventions unless asked to change them.
-- Build with the most modern stable tools available at the time. Check current releases and the documentation for the installed version instead of relying on memory.
+- Check the documentation for the installed version instead of relying on memory.
 - If a rule names a tool or API that has since been superseded, follow current practice and tell the user the rule is outdated.
-- For new projects, choose the frameworks and build tools that best fit the project at the time. Do not assume the ones covered in this repository are still the best choice.
+- For new projects, check current releases and choose the tools that best fit the project at the time. Do not assume the ones covered in this repository are still the best choice.
 - Write mobile apps, including those that also target the web, with a cross-platform framework by default. Use native code only when the app depends on image capture or other capabilities that cross-platform frameworks cannot serve well.
 - Before changing a user interface, read the guideline for each platform it targets: [ui/web.md](ui/web.md) for browsers, and [ui/mobile.md](ui/mobile.md) for iOS and Android.
 
 ## Security
 
-- Before adding a dependency, confirm that the package name is the intended one, then check its publisher, maintenance activity, known vulnerabilities, and install scripts. Avoid adding one when a small amount of code would do.
+- Before adding a dependency, confirm that the package name is the intended one, then check its publisher, maintenance activity, known vulnerabilities, and install scripts.
 - Treat releases published only days ago with caution, because compromised versions are often found soon after publication.
 - Commit lockfiles, and do not run install scripts or remote scripts that have not been checked.
 - Before using a module that connects to external services, check where it connects, what data it sends, and whether its telemetry can be disabled.

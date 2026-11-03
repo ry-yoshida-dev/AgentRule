@@ -18,7 +18,7 @@ Apply these rules to every project that depends on `react`, whichever platform i
 
 ## Structure
 
-- Separate code into the following directories as the project needs them: `domain/` (pure TypeScript without React), `api/` (server types and calls), `state/`, `hooks/`, `features/`, `components/`, and `theme/`.
+- Separate code into the following directories as the project needs them: `domain/` (pure TypeScript without React), `api/` (server types and calls), `state/` (state shared across the app), `behaviors/` (reusable logic built on React hooks), `features/`, `components/`, and `theme/`.
 - Keep types matching the server's API in one place under `api/`.
 - Import across directories through the `@/` path alias.
 
