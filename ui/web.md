@@ -3,6 +3,7 @@
 ## Controls
 
 - Give buttons icons so that they are intuitive. Icon-only buttons must have a tooltip and an `aria-label`.
+- Draw custom icons with only the marks needed to convey the meaning. Leave out decorative or contextual strokes, such as ground lines or frames, that add nothing to it.
 - Use a slider (`<input type="range">`) for parameters with a known range, and show the current value next to it.
 - Show unavailable controls in a disabled state instead of hiding them.
 

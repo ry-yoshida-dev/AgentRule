@@ -5,6 +5,7 @@
 - Give buttons icons so that they are intuitive. Icon-only buttons must have an accessibility label.
 - Use a slider for parameters with a known range, and show the current value.
 - Use platform-standard components and icons (e.g., SF Symbols on iOS) before building custom ones.
+- Draw custom icons with only the marks needed to convey the meaning. Leave out decorative or contextual strokes, such as ground lines or frames, that add nothing to it.
 - Keep touch targets at least 44 points, and do not depend on hover.
 
 ## Layout
