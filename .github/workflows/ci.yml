@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Check relative Markdown links
+        shell: python
+        run: |
+          import re
+          import sys
+          from pathlib import Path
+
+          link = re.compile(r"\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
+          fence = re.compile(r"^```.*?^```", re.MULTILINE | re.DOTALL)
+          broken = []
+          for document in sorted(Path().rglob("*.md")):
+              if ".git" in document.parts:
+                  continue
+              text = fence.sub("", document.read_text(encoding="utf-8"))
+              for target in link.findall(text):
+                  if re.match(r"[a-z][a-z0-9+.-]*:", target) or target.startswith("#"):
+                      continue
+                  path = target.split("#", 1)[0]
+                  if not (document.parent / path).exists():
+                      broken.append(f"{document}: {target}")
+          print("\n".join(broken) or "All relative links resolve.")
+          sys.exit(1 if broken else 0)
