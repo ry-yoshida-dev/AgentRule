@@ -26,7 +26,7 @@
 ## Structure
 
 - Everything in a directory must belong to that directory's responsibility. When a new or existing file or sub-directory does not fit, propose moving it to a different directory or creating a new one.
-- When a directory groups interchangeable items, such as concrete implementations of one interface, keep its contents the same kind of thing.
+- When a directory groups interchangeable items, such as the implementations of one abstract class, keep its contents the same kind of thing.
 - In upper-level directories, follow the directory structure and naming conventions established for the programming language.
 - Name files and directories so that reading a path from the top down lets the reader infer what each level contains.
 - Avoid vocabulary that comes from the conventions of modules used internally, and choose names with general meaning.

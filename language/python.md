@@ -47,7 +47,14 @@ paths:
 - Use `__init__.py` to manage public APIs and prevent messy deep imports.
 - Each Python file must contain at most one class.
 - Supporting data structures should be placed in their own files.
-- **Hierarchy Separation**: Abstract Base Classes (ABCs) and core interfaces must reside directly adjacent to their concrete implementations (e.g., place `processor.py` next to a `processors/` sub-directory containing concrete implementations).
+- **Hierarchy Separation**: Place the concrete classes of each project-defined abstract class (ABC or Protocol) that has two or more explicitly inheriting concrete classes as follows. Concrete classes used only in tests belong in the test directory and are outside this rule.
+  - When concrete classes of two or more abstract classes import one another within the same implementation (one direction is enough), create a directory per implementation and name each file after its abstract class (`<implementation>/<abstract>.py`). When an implementation lacks some of the abstract classes, omit those files.
+  - Otherwise, create a directory per abstract class and name each file after its implementation (`<plural of abstract>/<implementation>.py`).
+  - In both layouts, place each abstract class as `<abstract>.py` at the same level as the directories of its concrete classes.
+  - When abstract classes inherit from other abstract classes, decide the layout by the abstract class the concrete class inherits directly.
+  - Derive the file name by removing prefixes and suffixes such as `Base`, `Abstract`, `Protocol`, and `Interface` from the abstract class name and converting it to snake_case. Name the directory by pluralizing only the last word in English (`DataLoader` becomes `data_loaders/`, `Strategy` becomes `strategies/`).
+  - Include the implementation name in each concrete class name (the concrete class in `tmp/processor.py` is `TmpProcessor`).
+  - When adding or removing abstract classes or implementations changes which layout applies, propose the move and do not move existing files until instructed.
 - **Non-Redundant Filenames**: Filenames must not repeat the parent directory or domain concept as a prefix or suffix (e.g., inside `processors/`, use `tmp.py` instead of `tmp_processor.py`).
 
 ## Tests
