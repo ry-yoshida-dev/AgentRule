@@ -15,7 +15,7 @@
 - When a code change affects public behavior, architecture, or usage, update the corresponding `README.md`.
 - A root `README.md` contains an `Overview` of what the project does in a few sentences, `Installation`, and `Usage` with minimal examples. Add `Development` only for steps that differ from the conventions of the project's tools.
 - When a root `README.md` lists what the project supports, such as models, methods, or platforms, put a table in the `Overview` if every item can be compared by the same attributes (e.g., each model's presets). If the table grows beyond about 10 rows, make each row a category that maps to a sub-directory (e.g., supervised and unsupervised), link the row to that sub-directory's `README.md`, and let its `Components` table list the items.
-- A sub-directory `README.md` contains only the `Overview` and the `Components` table. Do not describe implementation details.
+- A sub-directory `README.md` contains only the `Overview`, the `Components` table, and, where it helps the reader, `Examples`. Do not describe implementation details.
 - Describe detailed behavior where it is used: docstrings for functions and classes, `--help` for command-line tools, and on-screen text for user interfaces.
 - Put detailed reference material, such as APIs, file formats, and protocols, in a separate document and link it from the `README.md`.
 - When adding to a `README.md` for a new feature, check that the addition is not redundant. If it makes the text too long, restructure the `README.md` and edit it down to what the reader needs.
