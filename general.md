@@ -13,6 +13,11 @@
 - Sub-directories also need a `Components` table linking each file or sub-directory (except package initializers such as `__init__.py`) to its responsibility.
 - Add an `Examples` section to a `README.md` where it helps the reader.
 - When a code change affects public behavior, architecture, or usage, update the corresponding `README.md`.
+- A root `README.md` contains an `Overview` of what the project does in a few sentences, `Installation`, and `Usage` with minimal examples. Add `Development` only for steps that differ from the conventions of the project's tools.
+- A sub-directory `README.md` contains only the `Overview` and the `Components` table. Do not describe implementation details.
+- Describe detailed behavior where it is used: docstrings for functions and classes, `--help` for command-line tools, and on-screen text for user interfaces.
+- Put detailed reference material, such as APIs, file formats, and protocols, in a separate document and link it from the `README.md`.
+- When adding to a `README.md` for a new feature, check that the addition is not redundant. If it makes the text too long, restructure the `README.md` and edit it down to what the reader needs.
 
 ## Design
 
