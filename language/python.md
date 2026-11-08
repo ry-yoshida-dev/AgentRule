@@ -33,6 +33,7 @@ paths:
 
 - Prefer `match-case` for Enum dispatch, state transitions, and multi-branch logic. Use `if-elif` when it is clearly more readable.
 - Prefer a dedicated `@dataclass` when a function returns multiple related values with domain meaning. Tuples are fine for small, self-evident results.
+- Use `@dataclass` for a class whose `__init__` only stores its parameters as attributes.
 - Use `Enum` for states, categories, and finite domains. String literal branching is prohibited.
 - Prefer cohesive class-based designs over collections of standalone functions.
 - Avoid classes and wrappers that do not provide clear semantic value.
